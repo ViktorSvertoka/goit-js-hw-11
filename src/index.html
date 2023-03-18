@@ -10,7 +10,26 @@
     <link rel="shortcut icon" href="./images/favicon.ico" />
     <title>Gallery search</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
   </head>
-  <body></body>
+  <body>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button class="submit-btn" type="submit">Search</button>
+    </form>
+
+    <div class="gallery">
+      <!-- Картки зображень -->
+    </div>
+
+    <footer class="footer">
+      <button type="button" class="load-more">Load more</button>
+    </footer>
+
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>
