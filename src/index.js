@@ -21,11 +21,12 @@ const options = {
 };
 const observer = new IntersectionObserver(onLoadMore, options);
 
-function onSearch(e) {
-  e.preventDefault();
+function onSearch(element) {
+  element.preventDefault();
 
   refs.galleryContainer.innerHTML = '';
-  newsApiService.query = e.currentTarget.elements.searchQuery.value.trim();
+  newsApiService.query =
+    element.currentTarget.elements.searchQuery.value.trim();
   newsApiService.resetPage();
 
   if (newsApiService.query === '') {
@@ -46,8 +47,8 @@ function onLoadMore() {
 async function fetchGallery() {
   refs.loadMoreBtn.classList.add('is-hidden');
 
-  const r = await newsApiService.fetchGallery();
-  const { hits, total } = r;
+  const result = await newsApiService.fetchGallery();
+  const { hits, total } = result;
   isShown += hits.length;
 
   if (!hits.length) {
